@@ -1,0 +1,597 @@
+
+/* =========================
+   1. GLOBAL SETTINGS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #09090d;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+:root {
+    --background: #09090d;
+    --card: #14141c;
+    --purple: #a78bfa;
+    --blue: #60a5fa;
+    --muted: #a1a1aa;
+}
+
+/* =========================
+   2. NAVIGATION
+========================= */
+
+.navbar {
+    width: 100%;
+    padding: 25px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(9, 9, 13, 0.85);
+    border-bottom: 1px solid #252530;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--purple);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: #ccccd5;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--purple);
+}
+
+.nav-contact {
+    border: 1px solid var(--purple);
+    padding: 11px 20px;
+    border-radius: 30px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* =========================
+   3. HERO SECTION
+========================= */
+
+.hero {
+    min-height: 90vh;
+    padding: 130px 10%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 850px;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    color: var(--purple);
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 88px);
+    line-height: 1.08;
+    letter-spacing: -4px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span,
+.contact h2 span {
+    display: block;
+    background: linear-gradient(
+        90deg,
+        #a78bfa,
+        #60a5fa
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero-description {
+    max-width: 550px;
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.primary-btn {
+    color: #09090d;
+    background: linear-gradient(
+        90deg,
+        var(--purple),
+        var(--blue)
+    );
+}
+
+.secondary-btn {
+    color: white;
+    border: 1px solid #444451;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+    transform: translateY(-4px);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 55px;
+    margin-top: 65px;
+    flex-wrap: wrap;
+}
+
+.hero-stats h3 {
+    font-size: 28px;
+    color: var(--purple);
+}
+
+.hero-stats p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.hero-glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    right: 5%;
+    top: 15%;
+    background: var(--purple);
+    filter: blur(180px);
+    opacity: 0.15;
+    border-radius: 50%;
+}
+
+/* =========================
+   4. GENERAL SECTIONS
+========================= */
+
+.section {
+    padding: 110px 10%;
+    border-top: 1px solid #252530;
+}
+
+.section-heading {
+    margin-bottom: 50px;
+}
+
+.section-heading h2,
+.contact h2 {
+    font-size: clamp(35px, 5vw, 55px);
+    letter-spacing: -2px;
+    margin-bottom: 15px;
+}
+
+.section-heading > p:not(.eyebrow) {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* =========================
+   5. ABOUT SECTION
+========================= */
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image {
+    min-height: 350px;
+    border-radius: 20px;
+    background: linear-gradient(
+        135deg,
+        #292044,
+        #151c35
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #383047;
+}
+.about-image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+}
+
+.image-placeholder {
+    color: #c4b5fd;
+    letter-spacing: 4px;
+    font-size: 13px;
+}
+
+.about-text h3 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.text-link {
+    color: var(--purple);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* =========================
+   6. TOOLS SECTION
+========================= */
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.tool-card {
+    background: var(--card);
+    border: 1px solid #292936;
+    padding: 30px 20px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.tool-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--purple);
+}
+
+.tool-card span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: #292044;
+    color: var(--purple);
+    border-radius: 12px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.tool-card h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.tool-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* =========================
+   7. PROJECT GALLERY
+========================= */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background: var(--card);
+    border: 1px solid #292936;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--purple);
+}
+
+.project-image {
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image span {
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.project-one {
+    background: linear-gradient(135deg, #31214d, #8055a9);
+}
+
+.project-two {
+    background: linear-gradient(135deg, #102d43, #276b88);
+}
+
+.project-three {
+    background: linear-gradient(135deg, #41252b, #a64e64);
+}
+
+.project-info {
+    padding: 23px;
+}
+
+.project-info h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.project-info p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* =========================
+   8. CONTACT SECTION
+========================= */
+
+.contact {
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 700px;
+    margin: auto;
+}
+
+.contact-content > p:not(.eyebrow) {
+    color: var(--muted);
+    line-height: 1.8;
+    margin: 25px 0 35px;
+}
+
+/* =========================
+   9. FOOTER
+========================= */
+
+footer {
+    border-top: 1px solid #252530;
+    padding: 30px 10%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+footer a {
+    color: var(--purple);
+    text-decoration: none;
+}
+
+/* =========================
+   10. ANIMATIONS
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.8s ease,
+                transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   11. MOBILE RESPONSIVENESS
+========================= */
+
+@media (max-width: 900px) {
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 20px 6%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: #111119;
+        flex-direction: column;
+        gap: 25px;
+        border-bottom: 1px solid #333;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero {
+        min-height: 85vh;
+        padding: 100px 7%;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero-stats {
+        gap: 25px;
+    }
+
+    .section {
+        padding: 80px 7%;
+    }
+
+    .tools-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image {
+        height: 220px;
+    }
+
+    footer {
+        padding: 25px 7%;
+        flex-direction: column;
+    }
+
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+.project-card iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    border-radius: 12px;
+    display: block;
+}
+.contact-email {
+    margin-top: 18px;
+    color: #b8b8c8;
+    font-size: 14px;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 768px) {
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card video {
+        height: 220px;
+    }
+
+    .about-image img {
+        height: 300px;
+    }
+
+    .contact-email {
+        font-size: 13px;
+    }
+
+    .primary-btn {
+        padding: 14px 24px;
+    }
+
+}
